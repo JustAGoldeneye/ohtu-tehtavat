@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ohtuesimerkki.StatisticsTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2019-11-02T03:13:03" hostname="RAKKINE" time="0.004">
+  <properties/>
+  <testcase name="playerSearchTest" classname="ohtuesimerkki.StatisticsTest" time="0.003"/>
+  <testcase name="unlistedPlayerSearchTest" classname="ohtuesimerkki.StatisticsTest" time="0.0"/>
+  <testcase name="topScorersSearchTest" classname="ohtuesimerkki.StatisticsTest" time="0.0"/>
+  <testcase name="teamSearchTest" classname="ohtuesimerkki.StatisticsTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
