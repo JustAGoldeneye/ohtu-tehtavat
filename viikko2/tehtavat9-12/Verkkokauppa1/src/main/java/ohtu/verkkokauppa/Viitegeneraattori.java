@@ -1,9 +1,14 @@
 package ohtu.verkkokauppa;
 
-public class Viitegeneraattori implements ViitegeneraattoriIF {
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component
+public class Viitegeneraattori implements ViitegeneraattoriIF {
+    
     public int seuraava;
     
+    @Autowired
     public Viitegeneraattori(){
         seuraava = 1;    
     }
