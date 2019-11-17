@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
+import java.util.ArrayList;
+import java.util.Collections;
 import org.apache.http.client.fluent.Request;
 
 public class Main {
@@ -22,11 +24,16 @@ public class Main {
         Gson mapper = new Gson();
         Player[] players = mapper.fromJson(bodyText, Player[].class);
         
+        ArrayList<Player> playerList = new ArrayList<>();
         for (Player player : players) {
             if (player.getNationality().equals(nationality)) {
-                System.out.println(player);
+                playerList.add(player);
             }
-        }   
+        }
+        Collections.sort(playerList, Collections.reverseOrder());
+        for (Player player : playerList) {
+            System.out.println(player);
+        }
     }
   
 }
