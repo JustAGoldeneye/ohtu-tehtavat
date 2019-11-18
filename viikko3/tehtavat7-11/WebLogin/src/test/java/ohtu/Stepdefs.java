@@ -18,7 +18,7 @@ public class Stepdefs {
     
     @Given("login is selected")
     public void loginIsSelected() {
-        clickLink("login"); 
+        clickLink("login", ""); 
     }    
     
     @When("correct username {string} and password {string} are given")
@@ -49,7 +49,7 @@ public class Stepdefs {
     
     @Given("command new user is selected")
     public void commandNewUserIsSelected() {
-        clickLink("register new user");  
+        clickLink("register new user", "");  
     }
     
     @When("a valid username {string} and password {string} and matching password confirmation are entered")
@@ -80,6 +80,26 @@ public class Stepdefs {
     @When("a valid username {string} and password {string} and unmatching password confirmation are entered")
     public void validUsernameAndPasswordAndUnmatchingPasswordConfirmationAreEntered(String username, String password) {
         createUserWith(username, password);
+    }
+    
+    @Given("user with username {string} with password {string} is successfully created")
+    public void userWithUsernameWithPasswordIsSuccessfullyCreated(String username, String password) {
+        clickLink("register new user", "");
+        createUserWith(username, password);
+        clickLink("continue to application mainpage", "/welcome");
+        clickLink("logout", "/ohtu");
+    }
+    
+    @Given("user with username {string} and password {string} is tried to be created")
+    public void UserWithUsernameAndPasswordIsTriedToBeCreated(String username, String password) {
+        clickLink("register new user", "");
+        createUserWith(username, password);
+        clickLink("back to home", "/user");
+    }
+    
+    @When("previous username {string} and password {string} are given")
+    public void previousUsernameAndPasswordAreGiven(String username, String password) {
+        logInWith(username, password);
     }
     
     @After
@@ -115,8 +135,8 @@ public class Stepdefs {
         element.submit();
     }
     
-    private void clickLink(String linkText) {
-        driver.get(baseUrl);
+    private void clickLink(String linkText, String UrlEnd) {
+        driver.get(baseUrl + UrlEnd);
         WebElement element = driver.findElement(By.linkText(linkText));       
         element.click(); 
     }
