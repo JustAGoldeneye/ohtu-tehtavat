@@ -145,7 +145,7 @@ public class KauppaTest {
         kauppa.maksa("4321");
 
         // ... ja kolmantena pyydetty viite        
-        verify(mockPankki).maksa(anyString(), anyInt(), eq(3));           
+        verify(mockPankki).maksa(anyString(), anyInt(), eq(32));           
 
     }
 }
