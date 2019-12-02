@@ -12,9 +12,10 @@ public class Erotus extends Komento {
     
     @Override
     public void suorita() {
+        tallennaTuloskentanArvo();
         sovellus.miinus(haeSyotekentanArvo());
-        int laskunTulos = sovellus.tulos();       
-        asetaSyotekentanArvo(laskunTulos);
+        int laskunTulos = sovellus.tulos(); 
+        asetaKenttienArvot(laskunTulos);
         saadaPainikkeidenTilaa(laskunTulos);
     }
 }

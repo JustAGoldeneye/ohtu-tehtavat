@@ -35,7 +35,7 @@ public class Tapahtumankuuntelija implements EventHandler {
             Komento komento = komennot.get((Button)event.getTarget());
             komento.suorita();
             edellinen = komento;
-        } else {
+        } else if (edellinen != null) {
             edellinen.peru();
             edellinen = null;
         }                  

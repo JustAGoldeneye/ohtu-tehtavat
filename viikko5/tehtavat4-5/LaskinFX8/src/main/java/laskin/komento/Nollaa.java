@@ -12,9 +12,10 @@ public class Nollaa extends Komento {
     
     @Override
     public void suorita() {
+        tallennaTuloskentanArvo();
         sovellus.nollaa();
-        int laskunTulos = sovellus.tulos();       
-        asetaSyotekentanArvo(laskunTulos);
+        int laskunTulos = sovellus.tulos();   
+        asetaKenttienArvot(laskunTulos);
         saadaPainikkeidenTilaa(laskunTulos);
     }
 }

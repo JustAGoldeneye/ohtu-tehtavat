@@ -10,6 +10,7 @@ public class Komento {
     Button nollaa;
     Button undo;
     Sovelluslogiikka sovellus;
+    int tuloskentanArvo;
     
     public Komento(TextField tuloskentta, TextField syotekentta, Button nollaa, Button undo, Sovelluslogiikka sovellus) {
         this.tuloskentta = tuloskentta;
@@ -17,6 +18,7 @@ public class Komento {
         this.nollaa = nollaa;
         this.undo = undo;
         this.sovellus = sovellus;
+        this.tuloskentanArvo = 0;
     }
     
     public void suorita() {
@@ -24,7 +26,10 @@ public class Komento {
     }
     
     public void peru() {
-        System.out.println("peru ei vielä käytössä");
+        this.tuloskentta.setText("" + this.tuloskentanArvo);
+        asetaKenttienArvot(this.tuloskentanArvo);
+        undo.disableProperty().set(true);
+        nollaa.disableProperty().set(false);
     }
     
     protected int haeSyotekentanArvo() { 
@@ -35,7 +40,16 @@ public class Komento {
         }
     }
     
-    protected void asetaSyotekentanArvo(int laskunTulos) {
+    protected void tallennaTuloskentanArvo() { 
+        int arvo = 0;
+        try {
+            arvo = Integer.parseInt(tuloskentta.getText());
+        } catch (Exception e) {
+        }
+        this.tuloskentanArvo = arvo;
+    }
+    
+    protected void asetaKenttienArvot(int laskunTulos) {
         syotekentta.setText("");
         tuloskentta.setText("" + laskunTulos);
     }
