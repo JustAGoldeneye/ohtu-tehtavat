@@ -33,12 +33,36 @@ public class Main {
             System.out.println(player);
         }
         
+        Matcher ml2 = new Or( new HasAtLeast(20, "goals"),
+                              new HasAtLeast(20, "assists")
+        );
+        
+        System.out.println("");
+        
+        for (Player player : stats.matches(ml2)) {
+            System.out.println(player);
+        }
+        
+        Matcher ml3 = new And(
+                      new HasAtLeast(20, "points"),
+                      new Or( 
+                      new PlaysIn("NYR"),
+                      new PlaysIn("NYI"),
+                      new PlaysIn("NJD")
+        )
+        );
+        
+        System.out.println("");
+        
+        for (Player player : stats.matches(ml3)) {
+            System.out.println(player);
+        }
+        
         //Omat testit
         
-        /*
         Matcher mo1 = new And( new HasFewerThan(5, "goals"),
-                             new HasFewerThan(5, "assists"),
-                             new PlaysIn("PHI")
+                               new HasFewerThan(5, "assists"),
+                               new PlaysIn("PHI")
         );
         
         System.out.println("");
@@ -46,6 +70,5 @@ public class Main {
         for (Player player : stats.matches(mo1)) {
             System.out.println(player);
         }
-        */
     }
 }
